@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线教育平台登录</title>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div id="branding">
+      <h1>在线教育平台</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">返回</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="login-container">
+  <form method="post" action="/login/" >
+      {% csrf_token %}
+        <h2>登录</h2>
+        <div class="form-group">
+          <label>角色：</label>
+          <select name="role" id="role">
+            <option value="bzr">班主任</option>
+            <option value="teacher">教师</option>
+            <option value="admin">管理员</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone">手机号：</label>
+          <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="password">密码：</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+    <button type="submit">登录</button>
+  </form>
+</div>
+
+
+
+<footer>
+  <div class="container">
+    <p>版权所有 &copy; 2024 在线教育平台</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
